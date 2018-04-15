@@ -13,6 +13,11 @@ public class News {
     public News() {
     }
 
+    public News(String name, Date publisDate) {
+        this.name = name;
+        this.publisDate = publisDate;
+    }
+
     public News(String name, ArrayList<Author> authors, ArrayList<Category> categorys, Date publisDate) {
         this.name = name;
         this.authors = authors;
