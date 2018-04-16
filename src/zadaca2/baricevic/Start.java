@@ -40,7 +40,7 @@ public class Start {
                     case 2:
                         updateNews(selectedNews);
                         break;
-                    case 4:
+                    case 3:
                         deleteNews(selectedNews);
                         break;
                     default:
@@ -215,7 +215,7 @@ public class Start {
 
     private void updateNews(News selectedNews){
         while (true){
-            System.out.println("Unesite što želite ažurarati.");
+            System.out.println("Unesite što želite ažurirati.");
             System.out.println("'I' za ime vijesti.");
             System.out.println("'A' za autora vijesti.");
             System.out.println("'K' za kategoriju vijesti.");
@@ -313,7 +313,7 @@ public class Start {
             printNewsList(new ArrayList<>() {{
                 add(selectedNews);
             }}, true);
-            switch (selectedUpdate.toLowerCase()){
+            switch (selectedUpdate.toLowerCase()) {
                 case "i":
                     newsList.remove(selectedNews);
                     System.out.println("Novo stanje vijesti:");
@@ -324,11 +324,9 @@ public class Start {
                         int index = Integer.parseInt(unos.next());
                         Author selectedAuthor = selectedNews.getAuthors().get(index);
                         selectedNews.getAuthors().remove(selectedAuthor);
-                    }
-                    catch (NumberFormatException ex){
+                    } catch (NumberFormatException ex) {
                         System.out.println("Unjeli ste krivi format indexa.");
-                    }
-                    catch (Exception ex){
+                    } catch (Exception ex) {
                         System.out.println("Došlo je do graške.");
                     }
                     break;
@@ -337,11 +335,9 @@ public class Start {
                         int index = Integer.parseInt(unos.next());
                         Category selectedCategory = selectedNews.getCategorys().get(index);
                         selectedNews.getCategorys().remove(selectedCategory);
-                    }
-                    catch (NumberFormatException ex){
+                    } catch (NumberFormatException ex) {
                         System.out.println("Unjeli ste krivi format indexa.");
-                    }
-                    catch (Exception ex){
+                    } catch (Exception ex) {
                         System.out.println("Došlo je do graške.");
                     }
                     break;
@@ -349,11 +345,6 @@ public class Start {
                     System.out.println("Unjeli ste neispravno brisanje.");
                     break;
             }
-
-            System.out.println("Stanje:");
-            printNewsList(new ArrayList<>() {{
-                add(selectedNews);
-            }}, false);
 
             System.out.println("Unesite 'izlaz' za prestanak azuriranja vijesti ili bilo sto za dalje");
             if(unos.next().toLowerCase().equals("izlaz"))
@@ -366,7 +357,7 @@ public class Start {
         System.out.println("0 za kreiranje novih vijesti");
         System.out.println("1 za ispis vijesti");
         System.out.println("2 za azuriranje vijesti");
-        System.out.println("4 za brisanje vijesti");
+        System.out.println("3 za brisanje vijesti");
 
     }
 

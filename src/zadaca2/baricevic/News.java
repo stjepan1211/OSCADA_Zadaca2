@@ -2,6 +2,7 @@ package zadaca2.baricevic;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Objects;
 
 public class News {
 
@@ -55,5 +56,32 @@ public class News {
 
     public void setPublisDate(Date publisDate) {
         this.publisDate = publisDate;
+    }
+
+    @Override
+    public String toString() {
+        return "News{" +
+                "name='" + name + '\'' +
+                ", authors=" + authors +
+                ", categorys=" + categorys +
+                ", publisDate=" + publisDate +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        News news = (News) o;
+        return Objects.equals(name, news.name) &&
+                Objects.equals(authors, news.authors) &&
+                Objects.equals(categorys, news.categorys) &&
+                Objects.equals(publisDate, news.publisDate);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(name, authors, categorys, publisDate);
     }
 }
